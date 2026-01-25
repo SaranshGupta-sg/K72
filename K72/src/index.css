@@ -34,3 +34,13 @@
 .link:hover .moveLink{
    opacity: 1;
 }
+
+.link {
+  transform-origin: top;
+  transform: rotateX(90deg);
+  opacity: 0;
+}
+
+.navlink {
+  opacity: 0;
+}

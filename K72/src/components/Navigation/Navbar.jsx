@@ -10,8 +10,8 @@ const Navbar = () => {
   return (
     <>
       <div className="z-4 flex fixed top-0 w-full items-start justify-between">
-        <div className='w-30'>
-          <div className='p-5'>
+        <div className=' lg:p-5 p-2'>
+          <div className='lg:w-30 w-16'>
             <svg
               className="w-full h-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -32,12 +32,12 @@ const Navbar = () => {
         }}
           onMouseLeave={() => {
             navGreenRef.current.style.height = '0%'
-          }} className='bg-black h-10 relative w-60'>
+          }} className='bg-black h-10 relative w-40'>
           <div ref={navGreenRef} className='bg-[#D3FD50] transition-all absolute top-0 h-0 w-full'></div>
           <div className='relative'></div>
-          <div className='relative h-full lg:px-12 px-8 flex flex-col justify-center items-end lg:gap-1.5 gap-0.5'>
-            <div className="lg:w-18 w-12 h-0.5 bg-white"></div>
-            <div className="lg:w-10 w-6 h-0.5 bg-white"></div>
+          <div className='relative h-full lg:px-6 px-3 flex flex-col justify-center items-end lg:gap-1.5 gap-0.5'>
+            <div className="lg:w-13 w-12 h-0.5 bg-white"></div>
+            <div className="lg:w-8 w-6 h-0.5 bg-white"></div>
           </div>
         </div>
       </div>

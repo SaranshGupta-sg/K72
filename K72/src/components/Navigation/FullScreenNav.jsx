@@ -10,52 +10,52 @@ const FullScreenNav = () => {
 
     const [navOpen, setNavOpen] = useContext(NavbarContext)
 
-     function gsapAnimation() {
-  const tl = gsap.timeline()
-
-  tl.set('.fullscreennav', { display: 'block' })
-
-  tl.to('.stairing', {
-    height: '100%',
-    stagger: 0.08,
-    duration: 0.6,
-    ease: 'power4.inOut',
-  })
-
-  tl.to(
-    '.link',
-    {
-      opacity: 1,
-      rotateX: 0,
-      stagger: 0.12,
-      duration: 0.5,
-      ease: 'power4.out',
-    },
-    '-=0.3'
-  )
-
-  tl.to('.navlink', { opacity: 1 }, '-=0.4')
-}
-
-function gsapAnimationReverse() {
-  const tl = gsap.timeline()
-
-  tl.to('.link', {
-    opacity: 0,
-    rotateX: 90,
-    stagger: 0.05,
-    duration: 0.3,
-  })
-
-  tl.to('.stairing', {
-    height: 0,
-    stagger: 0.05,
-    duration: 0.4,
-  })
-
-  tl.set('.fullscreennav', { display: 'none' })
-}
-
+      function gsapAnimation() {
+        const tl = gsap.timeline()
+        tl.to('.fullscreennav', {
+            display: 'block'
+        })
+        tl.to('.stairing', {
+            delay: 0.2,
+            height: '100%',
+            stagger: {
+                amount: -0.3
+            }
+        })
+        tl.to('.link', {
+            opacity: 1,
+            rotateX: 0,
+            stagger: {
+                amount: 0.3
+            }
+        })
+        tl.to('.navlink', {
+            opacity: 1
+        })
+    
+    }
+    function gsapAnimationReverse() {
+        const tl = gsap.timeline()
+        tl.to('.link', {
+            opacity: 0,
+            rotateX: 90,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        tl.to('.stairing', {
+            height: 0,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        tl.to('.navlink', {
+            opacity: 0
+        })
+        tl.to('.fullscreennav', {
+            display: 'none',
+        })
+    }
 
 
     useGSAP(function () {
@@ -72,8 +72,8 @@ function gsapAnimationReverse() {
 
     return (<>
         <div
-  ref={fullScreenRef}
-  className="fullscreennav hidden fixed top-0 left-0 w-full h-screen bg-black z-50 text-white p-5 overflow-hidden"
+  ref={fullScreenRef} id='fullscreennav'
+  className="fullscreennav hidden w-full h-screen bg-black z-50 text-white absolute overflow-x-hidden"
 >
             <div className='h-screen fixed overflow-x-hidden overflow-y-hidden '>
                 <div className='h-full w-full flex'>
@@ -85,9 +85,9 @@ function gsapAnimationReverse() {
                 </div>
             </div>
             <div ref={fullNavLinksRef} className='relative'>
-                <div className=' navlink flex w-full justify-between items-start'>
-                <div className='w-30'>
-                    <div className=''>
+                <div className='navlink flex w-full justify-between items-start'>
+                <div className=''>
+                    <div className='lg:w-30 w-20'>
                         <svg
                             className="w-full h-auto"
                             xmlns="http://www.w3.org/2000/svg"
